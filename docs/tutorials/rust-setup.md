@@ -95,13 +95,13 @@ The first way is to use `cargo build`.
 cargo build
 ./target/debug/hello_world
 ```
+`cargo build` compiles the code in your Rust file into machine code, similar to that of how `gcc` does so for C code. The compiled binary is then stored in the `target` directory.
 
 The second way is to do both commands in one step with `cargo run`.
 ```
 cargo run
 ```
-
-The difference is....
+The difference between `cargo run` and `cargo build` is that `run` will compile and run the program in one command, whereas `cargo build` only compiles your code.
 
 put in tooltip -> You can find more information about `cargo` in [this documentation](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)!
 
