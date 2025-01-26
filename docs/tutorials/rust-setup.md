@@ -3,6 +3,7 @@
 * Primary author: [Emily Chen](https://github.com/emsesc)
 * Reviewer: [Daniel Islas](https://github.com/DanielBautista7799)
 
+<<<<<<< HEAD
 This tutorial is a quickstart on how to set up a Rust container for a development environment. By the end of this tutorial, you will have a working Rust dev container!
 
 ## 🔑 Prerequisites
@@ -145,3 +146,9 @@ The difference between `cargo run` and `cargo build` is that `run` will compile 
     For more information about cargo, refer to [this documentation.](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)
 
 
+=======
+Below is an example of a code block from the mkdocs Code Block extension.
+```py
+print("Hello world!")
+```
+>>>>>>> mkdocs-extensions
