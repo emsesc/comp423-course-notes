@@ -7,6 +7,7 @@ This tutorial is a quickstart on how to set up a Rust container for a developmen
 
 ## 🔑 Prerequisites
 Before we begin the tutorial, you'll want to have the following:
+
 * [Docker](https://docs.docker.com/engine/install/)
 * Visual Studio Code [(VS Code)](https://code.visualstudio.com/download)
 * A [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installation.
@@ -40,7 +41,11 @@ git commit -m "Initial commit with README"
 
 ## Part 2: Setting Up Your Dev Container
 ### Step 1: Configuring your container
-In your new directory that is currently being tracked by git, add the following JSON object to a file named `devcontainer.json` in a hidden directory `.devcontainer`. The full file path should be `.devcontainer/devcontainer.json`.
+1. Open VS Code
+2. Open the directory that contains your repository
+3. Install the [Dev Containers VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+In this new directory that is currently being tracked by git, add the following JSON object to a file named `devcontainer.json` in a hidden directory `.devcontainer`. The full file path should be `.devcontainer/devcontainer.json`.
 ```
 {
     "name": "Rust Development Environment",
@@ -58,20 +63,24 @@ In your new directory that is currently being tracked by git, add the following 
 * The **image** specifies the prebuilt Rust container image from Microsoft that we will be using.
 * The **customizations** species to also install the official `rust-analyzer` VSCode plugin by the Rust Programming Language Group that helps with Rust development.
 
-### Step 2: Start your environment
-1. Open VS Code
-2. Open the directory that contains your repository
-3. Install the [Dev Containers VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-4. Open the command palette from the menu bar through **View > Command Palette.**
-5. Start building your dev container by entering the command `>Dev Containers: Open Dev Container`.
+### Step 3: Start your environment
+1. Open the command palette from the menu bar through **View > Command Palette.**
+2. Start building your dev container by entering the command `>Dev Containers: Open Dev Container`.
 
 !!! tip 
     Use the shortcut Ctrl+Shift+P (or Cmd+Shift+P on Mac) to quickly open the command palette.
 
-### Step 3: Verify your environment
+### Step 4: Verify your environment
 Let's make sure the container is working as expected.
+
 1. Open terminal in the running container
-2. Run `rustc --version`. It should show the most recent version of Rust.
+2. Run `rustc --version`.
+
+You should see an output like this:
+```
+rustc 1.83.0 (90b35a623 2024-11-26)
+```
+Success! You are now running Rust in a development container.
 
 ## Part 3: Dusting off the Rust
 Now that the backbone is set up, we can now create our Rust project.
@@ -81,7 +90,7 @@ Let's create a new binary project named "hello_world" using the following comman
 cargo new hello_world --bin --vcs none
 ```
 
-In the `src/main.rs` file, `cargo` has created the following file for you:
+In the `hello-world/src/main.rs` file, `cargo` has created the following file for you:
 ```rust
 fn main() {
     println!("Hello, world!");
@@ -98,20 +107,41 @@ fn main() {
 ### Step 2: Building and running your project
 There are two ways to build and run your project.
 
-The first way is to use `cargo build`.
+Before we begin, change directory into your new binary project.
+```
+cd hello_world
+```
+
+**(1) The first way is to use `cargo build`.**
 ```
 cargo build
 ./target/debug/hello_world
 ```
+Running both of these commands will yield:
+```
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
+Hello COMP423
+```
 `cargo build` compiles the code in your Rust file into machine code, similar to that of how `gcc` does so for C code. The compiled binary is then stored in the `target` directory.
 
-The second way is to do both commands in one step with `cargo run`.
+!!! info
+     If you run into an error with `cargo build` when you are running the development container on MacOS, make sure you have experimental features turned off in Docker.
+
+**(2) The second way is to do both commands in one step with `cargo run`.**
 ```
 cargo run
 ```
+You'll receive an output like so:
+```
+   Compiling hello_world v0.1.0 (/workspaces/rust-dev-container/hello_world)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.54s
+     Running `target/debug/hello_world`
+Hello COMP423
+```
+
 The difference between `cargo run` and `cargo build` is that `run` will compile and run the program in one command, whereas `cargo build` only compiles your code.
 
 !!! note 
-    For more information about cargo, refer to [this documentation](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)
+    For more information about cargo, refer to [this documentation.](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)
 
 
