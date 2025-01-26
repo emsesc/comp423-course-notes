@@ -9,3 +9,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
