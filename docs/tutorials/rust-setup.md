@@ -3,7 +3,6 @@
 * Primary author: [Emily Chen](https://github.com/emsesc)
 * Reviewer: [Daniel Islas](https://github.com/DanielBautista7799)
 
-<<<<<<< HEAD
 This tutorial is a quickstart on how to set up a Rust container for a development environment. By the end of this tutorial, you will have a working Rust dev container!
 
 ## 🔑 Prerequisites
@@ -20,7 +19,7 @@ Before we begin the tutorial, you'll want to have the following:
 Open your terminal and change directories to where you want to set up your dev container.
 
 Run the following commands to create a new directory.
-```
+```bash
 mkdir rust-dev-container
 cd rust-dev-container
 ```
@@ -29,12 +28,12 @@ cd rust-dev-container
      This ensures you start with a clean working directory for your Rust project.
 
 Now, let's initialize a new Git repository.
-```
+```bash
 git init
 ```
 
 Finally, we'll add a README file.
-```
+```bash
 echo "# Rust Dev Container" > README.md
 git add README.md
 git commit -m "Initial commit with README"
@@ -47,7 +46,7 @@ git commit -m "Initial commit with README"
 3. Install the [Dev Containers VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 In this new directory that is currently being tracked by git, add the following JSON object to a file named `devcontainer.json` in a hidden directory `.devcontainer`. The full file path should be `.devcontainer/devcontainer.json`.
-```
+```json
 {
     "name": "Rust Development Environment",
     "image": "mcr.microsoft.com/devcontainers/rust:latest",
@@ -60,6 +59,7 @@ In this new directory that is currently being tracked by git, add the following 
     }
 }
 ```
+
 * The **name** allows you to differentiate development environments.
 * The **image** specifies the prebuilt Rust container image from Microsoft that we will be using.
 * The **customizations** species to also install the official `rust-analyzer` VSCode plugin by the Rust Programming Language Group that helps with Rust development.
@@ -87,7 +87,7 @@ Success! You are now running Rust in a development container.
 Now that the backbone is set up, we can now create our Rust project.
 ### Step 1: Create a binary project
 Let's create a new binary project named "hello_world" using the following command. We are are adding the `--vcs none` option because we don't need to create a new `git` repository.
-```
+```bash
 cargo new hello_world --bin --vcs none
 ```
 
@@ -109,12 +109,12 @@ fn main() {
 There are two ways to build and run your project.
 
 Before we begin, change directory into your new binary project.
-```
+```bash
 cd hello_world
 ```
 
 **(1) The first way is to use `cargo build`.**
-```
+```bash
 cargo build
 ./target/debug/hello_world
 ```
@@ -129,7 +129,7 @@ Hello COMP423
      If you run into an error with `cargo build` when you are running the development container on MacOS, make sure you have experimental features turned off in Docker.
 
 **(2) The second way is to do both commands in one step with `cargo run`.**
-```
+```bash
 cargo run
 ```
 You'll receive an output like so:
@@ -145,10 +145,4 @@ The difference between `cargo run` and `cargo build` is that `run` will compile 
 !!! note 
     For more information about cargo, refer to [this documentation.](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)
 
-
-=======
-Below is an example of a code block from the mkdocs Code Block extension.
-```py
-print("Hello world!")
-```
->>>>>>> mkdocs-extensions
+### Congratulations! You now have a working Rust development environment.
