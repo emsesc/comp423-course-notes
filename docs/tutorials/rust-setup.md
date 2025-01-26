@@ -10,7 +10,9 @@ Before we begin the tutorial, you'll want to have the following:
 * [Docker](https://docs.docker.com/engine/install/)
 * Visual Studio Code [(VS Code)](https://code.visualstudio.com/download)
 * A [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installation.
-Click on the links to find out how to install these applications if you don't have them!
+
+!!! Note
+    If you're missing any of these tools, click the links above for installation instructions before proceeding.
 
 ## Part 1: Creating Your Git Repository
 Open your terminal and change directories to where you want to set up your dev container.
@@ -20,6 +22,9 @@ Run the following commands to create a new directory.
 mkdir rust-dev-container
 cd rust-dev-container
 ```
+
+!!! info
+     This ensures you start with a clean working directory for your Rust project.
 
 Now, let's initialize a new Git repository.
 ```
@@ -59,6 +64,9 @@ In your new directory that is currently being tracked by git, add the following 
 3. Install the [Dev Containers VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 4. Open the command palette from the menu bar through **View > Command Palette.**
 5. Start building your dev container by entering the command `>Dev Containers: Open Dev Container`.
+
+!!! tip 
+    Use the shortcut Ctrl+Shift+P (or Cmd+Shift+P on Mac) to quickly open the command palette.
 
 ### Step 3: Verify your environment
 Let's make sure the container is working as expected.
@@ -103,5 +111,7 @@ cargo run
 ```
 The difference between `cargo run` and `cargo build` is that `run` will compile and run the program in one command, whereas `cargo build` only compiles your code.
 
-put in tooltip -> You can find more information about `cargo` in [this documentation](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)!
+!!! note 
+    For more information about cargo, refer to [this documentation](https://doc.rust-lang.org/cargo/guide/creating-a-new-project.html)
+
 
